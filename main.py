@@ -9,12 +9,13 @@ class ComponenteSchema(BaseModel):
     nome: str = Field(..., min_length=2, description="Nome do componente maker")
     quantidade: int = Field(..., ge=0, description="Quantidade em estoque (deve ser maior ou igual a zero)")
     categoria: str = Field(..., description="Categoria do item (ex: Atuadores, Microcontroladores)")
+    Estado: str = Field(..., min_length=2, description="Estado de conservação (ex: Novo, Usado, Avariado)")
 
 # 3. Nosso "Banco de Dados" temporário em memória
 estoque_laboratorio = [
-    {"id": 1, "nome": "Arduino Sensor Shield", "quantidade": 15, "categoria": "Placas de Expansão"},
-    {"id": 2, "nome": "Micro Servo Motor SG90", "quantidade": 42, "categoria": "Atuadores"},
-    {"id": 3, "nome": "Esteira em Acrílico", "quantidade": 2, "categoria": "Mecânica"}
+    {"id": 1, "nome": "Arduino Sensor Shield", "quantidade": 15, "categoria": "Placas de Expansão", "Estado": "Usado"},
+    {"id": 2, "nome": "Micro Servo Motor SG90", "quantidade": 42, "categoria": "Atuadores", "Estado": "Usado"},
+    {"id": 3, "nome": "Esteira em Acrílico", "quantidade": 2, "categoria": "Mecânica", "Estado": "Novo"}
 ]
 
 # Rota Raiz

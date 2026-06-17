@@ -1,3 +1,10 @@
+# No topo do arquivo main.py
+import models
+from database import engine
+# Cria as tabelas no banco de dados automaticamente ao iniciar
+models.Base.metadata.create_all(bind=engine)
+
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
